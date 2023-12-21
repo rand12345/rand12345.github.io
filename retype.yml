@@ -5,7 +5,7 @@ url: https://rand12345.github.io
 branding:
   title: Rand
   label: github.io
-  icon: favicon.ico
+  icon: /assets/images/favicon.ico
 
 links:
 
