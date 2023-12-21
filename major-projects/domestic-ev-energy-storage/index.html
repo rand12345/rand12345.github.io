@@ -6,7 +6,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.756491586609">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.756502140955">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -24,20 +24,22 @@
     <meta property="og:url" content="https://rand12345.github.io/major-projects/domestic-ev-energy-storage/">
     <meta property="og:title" content="(STM32) Energy Storage">
     <meta property="og:description" content="GitHub Repo">
+    <meta property="og:image" content="https://rand12345.github.io/assets/images/stm32f407_pcb.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://rand12345.github.io/major-projects/domestic-ev-energy-storage/">
     <meta property="twitter:title" content="(STM32) Energy Storage">
     <meta property="twitter:description" content="GitHub Repo">
+    <meta property="twitter:image" content="https://rand12345.github.io/assets/images/stm32f407_pcb.png">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.5.0.756491586609" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.756502140955" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.756491586609" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.756502140955" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.756491586609" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.756502140955" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -266,27 +268,45 @@
         <span><span class="docs-emoji">&#x1F31F;</span> Project Overview</span>
     </h2>
 </doc-anchor-target>
-<p>Project Toucan was developed to enable domestic solar hybrid inverters to use unmodified EV batteries.
-Rationale price per kWh.</p>
-<p>Hardware: STM32F407 <a href="https://www.aliexpress.com/item/1005001620616382">https://www.aliexpress.com/item/1005001620616382</a><br />
+<p>Project <a href="https://github.com/rand12345/toucan_stm32f407">Toucan</a> is a fully asynchronous EV battery to ESS storage CAN bus protocol converter. Built on the Rust Embassy-rs framework. This project was developed to enable domestic solar hybrid inverters to use unmodified EV batteries. Some have coined the term second life batteries, which represents used EV batteries being given a second chance after losing much of their capacity and being remanufactured into a new form factor. This project rejects that idea and aims to use unmodified EV packs much like <a href="https://www.energy-storage.news/renault-batteries-find-megawatt-scale-2nd-life-use-in-belgium/">commercial BESS systems</a>. Each EV pack contains industry compliant contactors and battery management, and in turn presents real time data for health monitoring and fault detection.</p>
+<p>This project combines the utility of EV batteries and uses inexpensive STMicro dual CAN bus controllers to safely manage each pack and emulate domestic battery CAN protocols required to operate a solar hybrid inverter. A further rationale behind this project is the per price per kWh for lithium battery storage. As of 2023, PylonTech batteries cost approximately <a href="https://www.itstechnologies.shop/collections/pylontech-us2000-us3000-phantom/products/pylon-tech-us3000c-3-5kwh-li-ion-solar-wind-battery-storage">£300/kWh</a> where as used EV packs can be sourced from EV recycling businesses for approximately £60/kWh and range in size from 22kWh for an early Renault Zoe, to 82kWh from a Tesla Model 3.</p>
+<p>Hardware: STM32F407 <a href="https://www.aliexpress.com/item/1005001620616382.html?channel=twinner">https://www.aliexpress.com/item/1005001620616382.html?channel=twinner</a><br />
 Software: Rust no_std, <a href="https://embassy.dev">Embassy</a></p>
-<p>Fully asynchronous EV battery to ESS storage CAN bus protocol converter. Built on the Rust Embassy-rs framework.</p>
-<p>HVDC EV battery support:</p>
-<ul>
-<li>Renault Zoe Ph1 (22kWh -&gt; 44kWh)</li>
-<li>Renault Zoe Ph2 (52kWh)</li>
-<li>Renault Kangoo</li>
-<li>Tesla Model 3 (WIP - Contactors 100% ok)</li>
-</ul>
-<p>Solar Hybrid battery emulation support:</p>
-<ul>
-<li>Victron (LVDC)</li>
-<li>BYD</li>
-<li>PylonTech</li>
-<li>Solax</li>
-<li>FoxESS V1</li>
-<li>FoxESS V2 (New)</li>
-</ul>
+<doc-anchor-target id="️-hardware-support">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#️-hardware-support">#</doc-anchor-trigger>
+        <span><span class="docs-emoji">&#x26A1;</span>️ Hardware Support</span>
+    </h2>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th><strong>Compatible EV batteries</strong></th>
+<th><strong>Solar Hybrid battery emulation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Renault Zoe Ph1 (22kWh -&gt; 44kWh)</td>
+<td>BYD</td>
+</tr>
+<tr>
+<td>Renault Zoe Ph2 (52kWh)</td>
+<td>Triple Power (Solax), FoxESS V1 &amp; V2</td>
+</tr>
+<tr>
+<td>Renault Kangoo</td>
+<td>PylonTech</td>
+</tr>
+<tr>
+<td>Tesla Model 3 (WIP - Contactors 100% ok)</td>
+<td>Victron (LVDC)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src="../../assets/images/stm32f407_pcb.png" alt="" />  <img src="../../assets/images/toucan_stm32f4.png" alt="" /></p>
 
                                 
                                 <!-- Required only on API pages -->
