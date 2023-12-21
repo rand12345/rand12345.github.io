@@ -6,7 +6,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.756502140955">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.756502741744">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -35,11 +35,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.5.0.756502140955" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.756502741744" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.756502140955" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.756502741744" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.756502140955" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.756502741744" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -263,8 +263,8 @@
 </div>
 </p>
 <p>Used for reading Nissan EV battery controller data from OBD2 port and outputting to a JSON payload.</p>
-<p>JSON payload is received by a ESP01/NodeMCU flashed with <a href="https://tasmota.github.io/docs/">Tasomota</a> firmware. Payload is then forwarded as an MQTT message which is then used by OpenEVSE for SoC monitoring and Home Assistant for datalogging.</p>
-<p>Hardware: STMF32105 - AKA AliExpress CAN filter <a href="https://www.aliexpress.com/item/1005005767764354">https://www.aliexpress.com/item/1005005767764354</a><br />
+<p>JSON payload is received by a ESP01/NodeMCU flashed with <a href="https://tasmota.github.io/docs/">Tasomota</a> firmware. Payload is then forwarded as an MQTT message which is then used by OpenEVSE for SoC monitoring and Home Assistant for datalogging. Due to the dual CAN interfaces of this board, both Leaf CAN buses can be monitored for realtime datalogging.</p>
+<p>Hardware: STMF32105 - aka £9 AliExpress CAN filter <a href="https://www.aliexpress.com/item/1005005919692162.html?channel=twinner">https://www.aliexpress.com/item/1005005919692162.html?channel=twinner</a><br />
 Software: Rust no_std, <a href="https://embassy.dev">Embassy</a></p>
 <p><figure class="content-center">
     <img src="../../assets/images/openevse_data.png" alt="Home Assistant MQTT data">
