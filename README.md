@@ -1,3 +1,3 @@
-# 🏠 Rand Sec Projects and Embedded Dev  
+# 🏠 Rand Projects  
 
-WIP :+1:
+Please navigate using the left menu or continue below
