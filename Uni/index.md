@@ -1,8 +1,8 @@
-# 2. University Projects
+# University Projects
 
 ## Final Thesis
 
-||| AntiVirus evasion for Rust based malware - Jan 2024
+||| **AntiVirus evasion for Rust based malware - Jan 2024**
 
 ### Aim
 
@@ -42,11 +42,13 @@ Develop evasion improvements for Rust-based malware
 - The project commences in January 2024 and concludes with the submission of the thesis in April 2024.
 |||
 
-## Forensic Tools
+## Security and Forensic Tools
 
-||| [OpenStego-dict](https://github.com/rand12345/openstego-dict)
+### OpenStego-dict
 
-Modification of Syvaidya's OpenStego steganography tool.
+[!ref icon=":rocket:" text="Repo"](https://github.com/rand12345/openstego-dict)
+
+Modification of Syvaidya's [OpenStego steganography](https://github.com/syvaidya/openstego) tool.
 
 Added command line feature to perform dictionary attacks on steganography images as part of a CompSci forensics module
 
@@ -81,5 +83,3 @@ if (stego.getConfig().getPassword() != null) {
 }
 
 ```
-
-|||
