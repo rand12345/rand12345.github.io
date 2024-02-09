@@ -13,11 +13,12 @@ Software: Rust no_std, [Embassy](https://embassy.dev)
 
 ## ⚡️ Hardware Support
 
-**Compatible EV batteries** | **Solar Hybrid battery emulation**
-----|----
-Renault Zoe Ph1 (22kWh -> 44kWh) | BYD
-Renault Zoe Ph2 (52kWh) | Triple Power (Solax), FoxESS V1 & V2
-Renault Kangoo | PylonTech
-Tesla Model 3 (WIP - Contactors 100% ok) | Victron (LVDC)
+**Compatible EV batteries** | **Solar Hybrid battery emulation** | **Supported CAN bus inverters**
+----|----|----
+Renault Zoe Ph1 (22kWh -> 44kWh) | BYD | Solax X1/X3 & FoxESS AC1/AC3, H1, H3, K-Series
+Renault Zoe Ph2 (52kWh) | Triple Power & FoxESS V1 & V2 | GoodWe GW9000
+Renault Kangoo | PylonTech & PylonTech Force H2 | Deye & Sunsynk HV
+Tesla Model 3 (WIP - Contactors 100% ok) | Victron (BYD) | Solis HV
+
 
 ![](/assets/images/stm32f407_pcb.png)  ![](/assets/images/toucan_stm32f4.png)
