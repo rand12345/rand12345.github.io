@@ -1,0 +1,36 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-zinc-800 mt-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-6 text-sm text-zinc-500">
+    <div class="flex items-center gap-1 font-mono">
+      <span class="text-accent">&lt;</span>
+      <span class="text-zinc-400 font-semibold">rand12345</span>
+      <span class="text-accent">/&gt;</span>
+      <span class="ml-2">&copy; {year}</span>
+    </div>
+
+    <ul class="flex flex-wrap justify-center gap-6">
+      <li>
+        <a href="https://github.com/rand12345" target="_blank" rel="noopener" class="hover:text-zinc-300 transition-colors">
+          GitHub
+        </a>
+      </li>
+      <li>
+        <a href="https://crates.io/users/rand12345" target="_blank" rel="noopener" class="hover:text-zinc-300 transition-colors">
+          crates.io
+        </a>
+      </li>
+      <li>
+        <a href="https://hvdc.dev" target="_blank" rel="noopener" class="hover:text-zinc-300 transition-colors">
+          hvdc.dev
+        </a>
+      </li>
+    </ul>
+
+    <p class="text-xs text-zinc-600 text-center sm:text-right font-mono">
+      Embedded Rust · EV · Renewable Energy
+    </p>
+  </div>
+</footer>

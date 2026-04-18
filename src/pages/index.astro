@@ -1,0 +1,177 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import LibCard from '../components/LibCard.astro';
+
+const allProjects = await getCollection('projects');
+const sorted = allProjects.sort((a, b) => a.data.order - b.data.order);
+
+const major = sorted.filter(p => p.data.category === 'major');
+const libraries = sorted.filter(p => p.data.category === 'library');
+const iot = sorted.filter(p => p.data.category === 'iot');
+const data = sorted.filter(p => p.data.category === 'data');
+---
+
+<Layout>
+  <Hero />
+
+  <!-- Major Projects -->
+  <section id="projects" class="max-w-6xl mx-auto px-4 sm:px-6 py-20">
+    <div class="mb-10">
+      <p class="font-mono text-accent text-xs tracking-widest uppercase mb-2">Featured work</p>
+      <h2 class="text-2xl font-bold text-zinc-100">Major Projects</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {major.map(p => (
+        <ProjectCard
+          title={p.data.title}
+          tagline={p.data.tagline}
+          description={p.data.description}
+          tags={p.data.tags}
+          github={p.data.github}
+          stars={p.data.stars}
+          comingSoon={p.data.comingSoon}
+          label={p.data.label}
+        />
+      ))}
+    </div>
+  </section>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <hr class="border-zinc-800" />
+  </div>
+
+  <!-- Libraries & Drivers -->
+  <section id="libraries" class="max-w-6xl mx-auto px-4 sm:px-6 py-20">
+    <div class="mb-10">
+      <p class="font-mono text-accent text-xs tracking-widest uppercase mb-2">Open source</p>
+      <h2 class="text-2xl font-bold text-zinc-100">Libraries & Drivers</h2>
+      <p class="text-zinc-400 text-sm mt-2">Published crates and protocol documentation</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {libraries.map(p => (
+        <LibCard
+          title={p.data.title}
+          description={p.data.description}
+          tags={p.data.tags}
+          github={p.data.github}
+          cratesio={p.data.cratesio}
+          stars={p.data.stars}
+          forks={p.data.forks}
+        />
+      ))}
+    </div>
+  </section>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <hr class="border-zinc-800" />
+  </div>
+
+  <!-- IoT & Home Energy -->
+  <section id="iot" class="max-w-6xl mx-auto px-4 sm:px-6 py-20">
+    <div class="mb-10">
+      <p class="font-mono text-accent text-xs tracking-widest uppercase mb-2">Home energy</p>
+      <h2 class="text-2xl font-bold text-zinc-100">IoT & Energy Integration</h2>
+      <p class="text-zinc-400 text-sm mt-2">Inverter gateways, MQTT bridges, and Home Assistant integrations</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {iot.map(p => (
+        <LibCard
+          title={p.data.title}
+          description={p.data.description}
+          tags={p.data.tags}
+          github={p.data.github}
+          stars={p.data.stars}
+        />
+      ))}
+    </div>
+  </section>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <hr class="border-zinc-800" />
+  </div>
+
+  <!-- Data & Research -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-20">
+    <div class="mb-10">
+      <p class="font-mono text-accent text-xs tracking-widest uppercase mb-2">Research</p>
+      <h2 class="text-2xl font-bold text-zinc-100">Data & Protocol Analysis</h2>
+      <p class="text-zinc-400 text-sm mt-2">CAN bus captures, battery logs, and protocol tooling</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {data.map(p => (
+        <LibCard
+          title={p.data.title}
+          description={p.data.description}
+          tags={p.data.tags}
+          github={p.data.github}
+          stars={p.data.stars}
+        />
+      ))}
+    </div>
+  </section>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <hr class="border-zinc-800" />
+  </div>
+
+  <!-- Skills -->
+  <section id="skills" class="max-w-6xl mx-auto px-4 sm:px-6 py-20">
+    <div class="mb-10">
+      <p class="font-mono text-accent text-xs tracking-widest uppercase mb-2">Stack</p>
+      <h2 class="text-2xl font-bold text-zinc-100">Skills & Technologies</h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div>
+        <h3 class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-3">Languages</h3>
+        <div class="flex flex-wrap gap-2">
+          {['Rust', 'C', 'C++', 'Python', 'JavaScript / Svelte'].map(s => (
+            <span class="px-3 py-1 bg-zinc-900 border border-zinc-800 rounded-full text-xs font-mono text-zinc-300">{s}</span>
+          ))}
+        </div>
+      </div>
+      <div>
+        <h3 class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-3">Platforms</h3>
+        <div class="flex flex-wrap gap-2">
+          {['STM32', 'ESP32', 'BeagleBone Green', 'Raspberry Pi'].map(s => (
+            <span class="px-3 py-1 bg-zinc-900 border border-zinc-800 rounded-full text-xs font-mono text-zinc-300">{s}</span>
+          ))}
+        </div>
+      </div>
+      <div>
+        <h3 class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-3">Frameworks</h3>
+        <div class="flex flex-wrap gap-2">
+          {['Embassy-rs', 'RTIC', 'no_std', 'embedded-hal'].map(s => (
+            <span class="px-3 py-1 bg-zinc-900 border border-zinc-800 rounded-full text-xs font-mono text-zinc-300">{s}</span>
+          ))}
+        </div>
+      </div>
+      <div>
+        <h3 class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-3">Protocols</h3>
+        <div class="flex flex-wrap gap-2">
+          {['CAN bus', 'CHAdeMO', 'RS485', 'Modbus', 'I²C', 'SPI', 'UART', 'MQTT'].map(s => (
+            <span class="px-3 py-1 bg-zinc-900 border border-zinc-800 rounded-full text-xs font-mono text-zinc-300">{s}</span>
+          ))}
+        </div>
+      </div>
+      <div>
+        <h3 class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-3">Domains</h3>
+        <div class="flex flex-wrap gap-2">
+          {['EV batteries', 'V2H / V2G', 'Solar inverters', 'BMS', 'HV cell management', 'Home energy'].map(s => (
+            <span class="px-3 py-1 bg-zinc-900 border border-zinc-800 rounded-full text-xs font-mono text-zinc-300">{s}</span>
+          ))}
+        </div>
+      </div>
+      <div>
+        <h3 class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-3">Tools</h3>
+        <div class="flex flex-wrap gap-2">
+          {['SavvyCAN', 'probe-rs', 'cargo-embassy', 'Home Assistant', 'Wireshark'].map(s => (
+            <span class="px-3 py-1 bg-zinc-900 border border-zinc-800 rounded-full text-xs font-mono text-zinc-300">{s}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

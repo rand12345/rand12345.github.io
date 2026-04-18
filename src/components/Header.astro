@@ -1,0 +1,59 @@
+---
+const links = [
+  { href: '#projects', label: 'Projects' },
+  { href: '#libraries', label: 'Libraries' },
+  { href: '#iot', label: 'IoT & Energy' },
+  { href: '#skills', label: 'Skills' },
+];
+---
+
+<header class="sticky top-0 z-50 bg-zinc-950/90 backdrop-blur border-b border-zinc-800">
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-1 text-white font-bold tracking-tight font-mono">
+      <span class="text-accent text-lg">&lt;</span>
+      <span class="text-base">rand12345</span>
+      <span class="text-accent text-lg">/&gt;</span>
+    </a>
+
+    <ul class="hidden sm:flex items-center gap-1">
+      {links.map(({ href, label }) => (
+        <li>
+          <a
+            href={href}
+            class="px-4 py-2 rounded-md text-sm font-medium text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800 transition-colors"
+          >
+            {label}
+          </a>
+        </li>
+      ))}
+      <li class="ml-2">
+        <a href="https://hvdc.dev" target="_blank" rel="noopener" class="btn-primary text-xs px-4 py-2">
+          hvdc.dev
+        </a>
+      </li>
+    </ul>
+
+    <details class="sm:hidden relative">
+      <summary class="list-none cursor-pointer p-2 rounded-md text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <span class="sr-only">Menu</span>
+      </summary>
+      <ul class="absolute right-0 mt-2 w-48 card shadow-xl p-2 space-y-1">
+        {links.map(({ href, label }) => (
+          <li>
+            <a href={href} class="block px-4 py-2 text-sm text-zinc-300 hover:text-accent hover:bg-zinc-800 rounded-md transition-colors">
+              {label}
+            </a>
+          </li>
+        ))}
+        <li class="pt-1 border-t border-zinc-800">
+          <a href="https://hvdc.dev" target="_blank" rel="noopener" class="block px-4 py-2 text-sm text-accent font-semibold font-mono">
+            hvdc.dev →
+          </a>
+        </li>
+      </ul>
+    </details>
+  </nav>
+</header>
